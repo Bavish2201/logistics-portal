@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -11,6 +12,6 @@ class Logistic(models.Model):
 
     To = models.CharField(max_length=200)
     From = models.CharField(max_length=200)
-    Timestamp = models.DateTimeField()
-    Item = models.CharField(choices=ITEM_CHOICES, max_length=20)
+    Timestamp = models.DateTimeField(default=timezone.now)
+    Item = models.CharField(choices=ITEM_CHOICES, default='chair', max_length=20)
     Purpose = models.TextField()
